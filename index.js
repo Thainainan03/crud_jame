@@ -53,8 +53,8 @@ app.get('/account_number/:id',urlencodeParser,function(req,res){
     });
 })
 
-app.get('/DeleteAccount/:id',urlencodeParser,function(req,res){
-    var sql = "DELETE FROM account WHERE account_number = '" + req.params.id + "'" ;
+app.post('/DeleteAccount',urlencodeParser,function(req,res){
+    var sql = "DELETE FROM account WHERE account_number = '" + req.body.accountNumber + "'" ;
     console.log(sql);
     con.query(sql,function(err,result){
         if(err){console.log("cannot delete");}else{console.log('account deleted');}

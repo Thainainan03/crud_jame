@@ -26,14 +26,21 @@ export class AccountService {
       .map(res => res.json());
   }
 
-  DeleteAccount(id) {
+  /*DeleteAccount(id) {
     console.log(id)
     let headers = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: headers});
 
     return this.http.get(this.apiUrl + 'DeleteAccount/'+id,  )
       .map(success => success.status)
-  }
+  }*/
 
+  DeleteAccount(data) {
+    let headers = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.apiUrl + 'DeleteAccount', JSON.stringify(data), options)
+      .map(res => res.json());
+  }
 
 }

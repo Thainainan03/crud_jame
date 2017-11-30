@@ -76,30 +76,28 @@ export class HomeComponent implements OnInit {
 
   DeleteAccount() {
     console.log(this.accValue + ',' + this.braValue + ',' + this.balValue);
-    this.accountServive.DeleteAccount(this.accValue);
+    var data = {
+      accountNumber: this.accValue,
+    };
+    var result = this.accountServive.DeleteAccount(data)
+      .subscribe(res => {
+        if (res.success == "true") {
+          this.results.unshift(data);
+        }
         this.accValue = "";
         this.braValue = "";
         this.balValue = "";
-    //location.reload();
+        console.log(res);
+      });
+    location.reload();
   }
+
+
 
   getValue(a,b,c){
     this.accValue = a;
     this.braValue = b;
     this.balValue = c;
   }
-/*
-  getData(){
-    return this.http.get(this.apiUrl)
-    .map((res: Response)=> res.json())
-  }
-
-  getAccount(){
-    this.getData().subscribe(data => {
-      console.log(data);
-      this.data = data;
-    });
-  }*/
-  
 
 }
