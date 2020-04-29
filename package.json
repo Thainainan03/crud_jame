@@ -25,7 +25,7 @@
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "mysql": "^2.15.0",
     "rxjs": "^5.4.2",
     "slideout": "^1.0.1",
